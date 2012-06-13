@@ -1,0 +1,79 @@
+﻿@model IEnumerable<owaitlist.Models.Reservation>
+           
+<div id="manage-one-guest">
+    <h3>one guest</h3>
+    @{
+        var oneguest = Model.Where(r => r.Guests == 1);
+        foreach(var guest in oneguest){
+            <table>
+                <tr>
+                    <th>Phone number</th>
+                    <th>Served/Remove</th>
+                </tr>
+                <tr>
+                    <td>@guest.PhoneNumber</td>
+                    <td>@Ajax.ActionLink("Remove", "UpdateReservation", new { Id = guest.Id, Guests = guest.Guests, PhoneNumber = guest.PhoneNumber, RestaurantId = guest.RestaurantId }, new AjaxOptions() { HttpMethod = "Post", UpdateTargetId = "manage-guests" })</td>
+                </tr>
+            </table>
+        }
+    }
+</div>
+
+<div id="manage-two-guest">
+<h3>two guests</h3>
+@{
+        var twoguest = Model.Where(r => r.Guests == 2);
+        foreach(var guest in twoguest){
+            <table>
+                <tr>
+                    <th>Phone number</th>
+                    <th>Served/Remove</th>
+                </tr>
+                <tr>
+                    <td>@guest.PhoneNumber</td>
+                    <td>@Ajax.ActionLink("Remove", "UpdateReservation", new { Id = guest.Id, Guests = guest.Guests, PhoneNumber = guest.PhoneNumber, RestaurantId = guest.RestaurantId }, new AjaxOptions() { HttpMethod = "Post", UpdateTargetId = "manage-guests" })</td>
+                </tr>
+            </table>
+        }
+    }
+</div>
+
+<div id="manage-four-guest">
+<h3>four guests</h3>
+@{
+        var threeguest = Model.Where(r => r.Guests == 4);
+        foreach(var guest in threeguest){
+            <table>
+                <tr>
+                    <th>Phone number</th>
+                    <th>Served/Remove</th>
+                </tr>
+                <tr>
+                    <td>@guest.PhoneNumber</td>
+                    <td>@Ajax.ActionLink("Remove", "UpdateReservation", new { Id = guest.Id, Guests = guest.Guests, PhoneNumber = guest.PhoneNumber, RestaurantId = guest.RestaurantId }, new AjaxOptions() { UpdateTargetId = "manage-guests" })</td>
+                </tr>
+            </table>
+        }
+    }
+</div>
+
+<div id="manage-more-guest">
+<h3>more than four guests</h3>
+@{
+        var moreguest = Model.Where(r => r.Guests > 4);
+        foreach(var guest in moreguest){
+            <table>
+                <tr>
+                    <th>Phone number</th>
+                    <th>Served/Remove</th>
+                </tr>
+                <tr>
+                    <td>@guest.PhoneNumber</td>
+                    <td>@Ajax.ActionLink("Remove", "UpdateReservation", new { Id = guest.Id, Guests = guest.Guests, PhoneNumber = guest.PhoneNumber, RestaurantId = guest.RestaurantId}, new AjaxOptions() { UpdateTargetId = "manage-guests" })</td>
+                </tr>
+            </table>
+        }
+    }
+</div>
+
+

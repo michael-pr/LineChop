@@ -1,0 +1,93 @@
+﻿@model owaitlist.Models.Restaurant
+<script type="text/javascript">
+    $('#show-banner-img').ready(function () {
+        $('#show-banner-img').fadeIn("slow", function () {
+            $('#show-wait-time-hours').animate({
+                left: 600,
+                opacity: 1
+            }, 'slow');
+            $('#show-wait-time-minutes').animate({
+                left: 800,
+                opacity: 1
+            }, 'slow');
+            $('#show-wait-time-nowait').animate({
+                left: 600,
+                opacity: 1
+            }, 'slow');
+        });
+    });
+
+    function showForm() {
+        $('#show-reserve-form').slideDown();
+        $('#show-reserve-success').slideUp();
+        $('#show-reserve-fail').slideUp();
+        return true;
+    }
+
+    function hideFormSuccess() {
+        $('#show-reserve-form').slideUp();
+        $('#show-reserve-success').slideDown();
+    }
+
+    function hideFormFail() {
+        $('#show-reserve-form').slideUp();
+        $('#show-reserve-fail').slideDown();
+    }
+</script>
+<div id="show-banner-container">
+    <img id="show-banner-img" src="@Model.BannerImageUri" alt="banner" />
+    <div id="show-wait-time">
+        @{
+            if (Model.WaitTime.Hours > 0)
+            {
+            <div id="show-wait-time-hours" class="accent">@Model.WaitTime.Hours
+                <div class="show-wait-time-text">
+                    hours</div>
+            </div>
+            }
+            if (Model.WaitTime.Minutes > 0)
+            {
+            <div id="show-wait-time-minutes" class="accent">@Model.WaitTime.Minutes
+                <div class="show-wait-time-text">
+                    minutes</div>
+            </div>
+            }
+            if (Model.WaitTime.TotalMinutes < 1)
+            {
+            <div id="show-wait-time-nowait" class="accent">
+                (no wait)</div>}
+        }
+    </div>
+</div>
+<div id="show-title">
+    <h1>@Model.Name</h1>
+</div>
+<div id="show-description" class="accent-light">
+    <h2>
+        waitlist</h2>
+</div>
+<div id="show-panel-two">
+    <div id="show-reserve" class="accent" onclick="showForm()">
+        <h2>
+            get on the waitlist</h2>
+        <div id="show-reserve-form" style="display: none;">
+            @using (Ajax.BeginForm("Reserve", new AjaxOptions() { UpdateTargetId = "result", OnSuccess = "hideFormSuccess()", OnFailure = "hideFormFailure()" }))
+            {
+                <div id="result">
+                    @{
+                Html.RenderPartial("Reserve", new owaitlist.Models.Reservation { RestaurantId = Model.Id });
+                    }
+                </div>
+            }
+        </div>
+        <div id="show-reserve-success" style="display: none;">
+            <h3>Added to the waitlist</h3>
+        </div>
+        <div id="show-reserve-fail" style="display: none;">
+            <h3>Unable to add to waitlist. Try again later.</h3>
+        </div>
+    </div>
+    <div id="show-other" class="accent-light">
+        <h2>other options</h2>
+    </div>
+</div>

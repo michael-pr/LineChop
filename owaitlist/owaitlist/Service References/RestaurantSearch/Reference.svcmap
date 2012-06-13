@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="31eacaf0-2c79-46f2-9854-31429e4f42ca" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://dev.virtualearth.net/webservices/v1/searchservice/searchservice.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="search.wsdl" MetadataType="Wsdl" ID="68b4ca2e-1bc0-4e4a-91e2-3ad91f85a6b6" SourceId="1" SourceUrl="http://dev.virtualearth.net/webservices/v1/searchservice/searchservice.svc/mex" />
+    <MetadataFile FileName="contracts.wsdl" MetadataType="Wsdl" ID="07454ce5-edc9-472f-ac42-cd90abca9afd" SourceId="1" SourceUrl="http://dev.virtualearth.net/webservices/v1/searchservice/searchservice.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="75cc948c-6350-471f-87af-fc1a2eee95da" SourceId="1" SourceUrl="http://dev.virtualearth.net/webservices/v1/searchservice/searchservice.svc/mex" />
+    <MetadataFile FileName="search.xsd" MetadataType="Schema" ID="f5d42a26-38db-4599-b801-b51fa811a972" SourceId="1" SourceUrl="http://dev.virtualearth.net/webservices/v1/searchservice/searchservice.svc/mex" />
+    <MetadataFile FileName="common.xsd" MetadataType="Schema" ID="b8f821fb-c625-4ff1-8c84-47fbdd85b41b" SourceId="1" SourceUrl="http://dev.virtualearth.net/webservices/v1/searchservice/searchservice.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="57d3b81e-0281-45ff-95b9-83c7f94c7644" SourceId="1" SourceUrl="http://dev.virtualearth.net/webservices/v1/searchservice/searchservice.svc/mex" />
+    <MetadataFile FileName="contracts.xsd" MetadataType="Schema" ID="7ddc4f7c-4cb8-4cb2-bb61-4c230c92f365" SourceId="1" SourceUrl="http://dev.virtualearth.net/webservices/v1/searchservice/searchservice.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "LocationTest";
+}
+
+<h2>LocationTest</h2>
+<div id="accessLocation">
+    We can help you better if we know where you are. Would you like use to your location
+    information? (Click no to provide zip/pin code manually)
+    <input id="yesLocation" type="button" value="Yes" />
+    <input id="noLocation" type="button" value="No" />
+</div>
+<div id="autolocation">
+    <ul>
+        <li>
+            <div style="float: left; width: 75px">
+                Latitude</div>
+            <input id="lat" type="text" />
+        </li>
+        <li>
+            <div style="float: left; width: 75px">
+                Longitude</div>
+            <input id="lon" type="text" />
+        </li>
+    </ul>
+</div>
+<div id="manuallocation">
+    Please enter the zip/pin of your current location:
+    <input id="zip" type="text" />
+</div>
+<script language="javascript" type="text/javascript">
+    $(function () {
+        $("#autolocation").hide();
+        $("#manuallocation").hide();
+
+        $("#yesLocation").click(function () {
+            $("#accessLocation").hide();
+            $("#autolocation").show();
+            $("#manuallocation").hide();
+            var options = {
+                enableHighAccuracy: true,
+                timeout: 2000,
+                maximumAge: 1000
+            };
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, positionError, options);
+            }
+            else {
+                showNoLocation();
+            }
+        });
+
+        $("#noLocation").click(function () {
+            showNoLocation();
+        });
+
+        function showNoLocation() {
+            $("#accessLocation").hide();
+            $("#autolocation").hide();
+            $("#manuallocation").show();
+        }
+
+        function showPosition(position) {
+            var coordinates = position.coords;
+            $("#autolocation").show();
+            $("#lat").val(coordinates.latitude);
+            $("#lon").val(coordinates.longitude);
+        }
+
+        function positionError(position) {
+            switch (position.code) {
+                case 0:
+                    showNoLocation()
+                    break;
+                case 1:
+                    showNoLocation();
+                    break;
+                case 2:
+                    showNoLocation();
+                    break;
+                case 3:
+                    showNoLocation();
+                    break;
+                default:
+                    break;
+            }
+        }
+    });   
+</script>

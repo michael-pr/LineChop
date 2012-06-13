@@ -1,0 +1,49 @@
+﻿<script type="text/javascript">
+    function showSearchResults() {
+        document.getElementById('search-results-box').style.display = "block";
+    }
+
+    $('#search-results-box').ready(function () {
+        if ($('#search-textbox').val() != "") {
+            $.ajax({
+                type: 'POST',
+                url: "/Home/Find",
+                data: "query=" + $('#search-textbox').val(),
+                beforeSend: function () {
+                    $('#searching').css("display", "block");
+                },
+                success: function (html) {
+                    $('#search-results-box').html(html);
+                    showSearchResults();
+                }
+            });
+        }
+    });
+</script>
+<div class="search-container">
+    <div class="search-text">
+        where do you want to eat?</div>
+    @using (Ajax.BeginForm("Find", new AjaxOptions() { UpdateTargetId = "search-results-box", LoadingElementId = "searching", OnSuccess = "showSearchResults()" }))
+    {           
+        <input id="search-textbox" type="text" class="search-textbox" name="query" value="@ViewBag.Query"/>
+        <input type="submit" class="home-search-buttom" value="" />
+    }
+    @if (ViewBag.Query != null && !String.IsNullOrWhiteSpace((ViewBag.Query as String)))
+    {
+        <div id="search-results-box" class="accent-light">
+            <div id="searching">
+                <h2>
+                    searching...</h2>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div id="search-results-box" class="accent-light" style="display: none">
+            <div id="searching">
+                <h2>
+                    searching...</h2>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Online Waitlist Service";
+}
+
+<script type="text/javascript">
+    $('#home-search-bg').ready(function () {
+        $('#home-search-bg').fadeIn("slow");
+    });
+</script>
+
+<div class="home-search-container">
+    <img id="home-search-bg" src="@Url.Content("/Image/GetMainBanner")" alt="banner"/>
+    <div class="home-search-text">search for a restaurant...</div>
+        @using(Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "home-search-form" })){            
+            <input type="text" class="home-search-box" name="query" />
+            <input type="submit" class="home-search-buttom" value="" />
+        }
+    <div class="trim">
+    </div>
+</div>
+<div class="home-tile-container">
+    <div class="home-tile-wrapper">
+        <div class="home-tile accent">
+            <div class="home-tile-text">
+                <h4>restaurateur?</h4>
+                <h5>join us (and many other restaurants)</h5>
+            </div>
+        </div>
+        <div class="home-tile accent">
+            <div class="home-tile-text">
+                <h4>not a registered member?</h4>
+                <h5>create an account here</h5>
+            </div>
+        </div>
+        <div class="home-tile accent">
+            <div class="home-tile-text">
+                <h4>already a member?</h4>
+                <h5>sign in here</h5>
+            </div>
+        </div>
+    </div>
+</div>

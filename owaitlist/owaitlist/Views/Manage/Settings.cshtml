@@ -1,0 +1,74 @@
+﻿@model owaitlist.Models.Restaurant
+           
+<script type="text/javascript">
+    function showUploading() {
+        $('#uploading').slideDown();
+    }
+</script>
+
+<div id="settings-panel" class="accent-light">
+<h2>general</h2>
+@using (Ajax.BeginForm("Update", new AjaxOptions() { UpdateTargetId = "update-result"})) {
+    @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.Location)
+        @Html.HiddenFor(model => model.User);                                        
+        @Html.HiddenFor(model => model.BannerImageUri);
+        
+        <h3>@Html.LabelFor(model => model.WaitTime)</h3>
+        <div class="editor-field">
+            <h4>@Html.EditorFor(model => model.WaitTime)</h4>
+            @Html.ValidationMessageFor(model => model.WaitTime)
+        </div>                                                      
+                                                      
+        <h3>@Html.LabelFor(model => model.AutoIncrement)</h3>
+        <div class="editor-field">
+            <h4>Enabled: @Html.EditorFor(model => model.AutoIncrement)</h4>
+            @Html.ValidationMessageFor(model => model.AutoIncrement)
+        </div>
+
+        <h3>@Html.LabelFor(model => model.Increment)</h3>
+        <div class="editor-field">
+            <h4>@Html.EditorFor(model => model.Increment)</h4>
+            @Html.ValidationMessageFor(model => model.Increment)
+        </div>
+    
+        <p>
+            <input type="submit" value="Update" onClick="showUploading"/>
+        </p>
+        <div id="update-result"></div>
+}
+
+<h2>banner image</h2>
+<h3>current banner</h3>
+
+@if (!string.IsNullOrWhiteSpace(Model.BannerImageUri))
+{
+    <img src="@Url.Content("~/Image/GetImage/" + Model.Id + "?width=256&height=75")" alt="banner" />
+}
+else
+{
+    <h4>You don't have a banner image. Put one up!</h4>
+    <img src="@Url.Content("~/Image/GetImage/0?width=256&height=75")" alt="no-image" />
+}
+
+@using (Html.BeginForm("Upload", "Manage", new { id = Model.Id }, FormMethod.Post, new { id = "bannerForm", enctype = "multipart/form-data" }))
+{
+    <h4>Make sure your image resolution is 1024x300. It will be resized if not.</h4>
+    <input type="file" name="file-location"/>
+    
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}
+
+<div id="uploading" style="display:none">
+    <h3>Uploading....</h3>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+</div>

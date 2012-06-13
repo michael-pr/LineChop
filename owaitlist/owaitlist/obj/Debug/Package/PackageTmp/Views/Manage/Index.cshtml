@@ -1,0 +1,65 @@
+﻿@model owaitlist.Models.Restaurant
+<script type="text/javascript">
+    $(document).ready(function () {
+        setInterval(function () {
+            $.ajax({
+                type: 'POST',
+                url: "/Manage/ViewWaitTime",
+                data: "id=" + $('#model-id').attr("title"),
+                success: function (html) {
+                    $('#wait-time').html(html);
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: "/Manage/ViewReservation",
+                data: "id=" + $('#model-id').attr("title"),
+                success: function (html) {
+                    $('#manage-guests').html(html);
+                    $('#wait-time-status').slideUp();
+                }
+            });
+        }, 5000);
+    });
+
+    function updateSuccess() {
+        $('#wait-time-status').slideDown();
+    }
+</script>
+<div id="show-banner-container">
+    <img id="show-banner-img" src="@Model.BannerImageUri" alt="banner" />
+    <div id="wait-time">
+        @{
+            Html.RenderPartial("ViewWaitTime", Model.WaitTime);
+        }
+    </div>
+</div>
+<div id="settings-panel" class="accent-light">
+    <div id="model-id" class="hidden" title="@Model.Id">
+    </div>
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
+    <h3>
+        location</h3>
+    <h4>@Html.DisplayFor(model => model.Location)</h4>
+    @try
+    {
+        {
+        <div id="wait-time-status" style="display: none;">
+            <h3>Updated wait time</h3>
+        </div>
+        <div id="manage-guests">
+            @{
+                Html.RenderAction("ViewReservation", "Manage", new { id = Model.Id });
+            }
+        </div>
+        }
+    }
+    catch (Exception err)
+    {
+        <h4>
+            @err.Message
+        </h4>
+    }
+    <h3>@Html.ActionLink("Settings", "Settings", "Manage")</h3>
+</div>

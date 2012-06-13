@@ -1,0 +1,420 @@
+﻿body {
+    width: 100%;
+    margin: 0;
+    background-color: #1A1F1E;
+    color: white;
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+}
+
+input
+{
+    font-size: large;
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    padding-left: 10px;
+}
+
+header {
+    background-color: #E3DFBA;
+    height: 150px;
+    width: 100%;
+    position: relative;
+}
+
+.trim {
+    background-color: #6CBDB5;
+    height: 10px;
+    width: 100%;
+    position:absolute;
+    bottom: 0px;
+    left: 0px;    
+}
+
+.accent{
+    background-color: #6CBDB5;
+}
+
+.accent-light
+{
+    background-color: #C8D6BF;
+    color: Black;
+    padding: 12px;
+}
+
+.body-container {
+    width: 1024px;
+    margin: auto;
+    padding: 0px 12px 12px 12px;
+}
+
+.body-container h1
+{
+    font-size: 48pt;
+    color: White;
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    font-weight: 500;
+    margin: 12px;
+}
+
+.body-container h2
+{
+    font-size: xx-large;
+    color: Black;
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    font-weight: 500;
+    margin: 12px;
+}
+
+.home-search-container{
+    width: 100%;
+    height: 310px;
+    position: relative;
+}
+
+#home-search-bg
+{
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+}
+
+.home-search-text{
+    font-size: xx-large;
+    padding-top: 70px;
+    padding-left: 120px;
+}
+
+.home-search-form{
+    padding-left: 95px;
+}
+
+.home-search-box{
+    width: 680px;
+    height: 32px;
+    vertical-align: baseline;
+}
+
+.home-search-buttom{
+    height: 36px;
+    width: 130px;
+    background-image: url('/Content/img/searchBtn.png');
+    background-repeat: no-repeat;
+    vertical-align: baseline;
+}
+
+
+.home-tile-container{
+    height: 240px;
+}
+
+.home-tile-wrapper{
+    margin-top: 48px;
+    margin-left: 48px;
+    margin-right: auto;
+}
+
+.home-tile{
+    display: inline-block;
+    width: 280px;
+    height: 160px;
+    margin-left: 12px;
+    margin-right: 12px;
+    float: left;
+}
+
+.home-tile-text{
+    padding: 12px;
+}
+
+.home-tile-text h4
+{
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    font-size: large;
+    font-weight: 600;
+    margin: 0;
+}
+
+.home-tile-text h5
+{
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    font-size: medium;
+    font-weight: 500;
+    margin: 0;
+}
+
+footer{
+    border-top: 1px solid #141817;
+    background-color: #1B1F1E;
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    min-height: 225px;
+}
+
+.search-container
+{
+    margin: 24px 48px 50px 48px;
+}
+
+.search-text
+{
+    font-size: x-large;
+    margin-left: 36px;
+    margin-bottom: 12px;
+}
+
+.search-textbox
+{
+    width: 775px;
+    height: 32px;
+    margin-left: 3px;
+    vertical-align: baseline;
+}
+
+#search-results-box
+{
+    width: 875px;
+    min-height: 390px;
+    max-height: 500px;
+    margin: 36px auto 0px auto;
+    padding: 24px;
+}
+
+#search-results-box a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+#search-results-box h2
+{
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    font-size: xx-large;
+    font-weight: 500;
+    margin: 0;
+}
+
+#search-results-box h3
+{
+    font-weight: normal;
+    margin-left: 12px;
+}
+
+#search-results-box h4
+{
+    font-size: x-large;
+    font-weight: normal;
+    margin: 0;
+}
+
+.search-result-container
+{
+    margin-left: 12px;
+}
+
+#searching
+{
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
+.hidden
+{
+    display: none;
+}
+
+#settings-panel
+{
+    width: 80%;
+    margin: 24px auto 0px auto;
+    padding: 12px;
+}
+
+.settings-timespan
+{
+    width:150px;
+    font-size: 72pt;
+    color: White;
+    border: none;
+}
+
+.accent-light h2
+{
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    font-size: xx-large;
+    font-weight: 500;
+    margin: 0;
+}
+
+.accent-light h3
+{
+    font-weight: normal;
+    margin-left: 12px;
+}
+
+.accent-light h4
+{
+    font-size: medium;
+    font-weight: normal;
+    margin: 0;
+}
+
+#show-wait-time
+{
+    position:absolute;
+    left: 0px;
+    top:0px
+}
+
+#show-banner-container{
+    width: 100%;
+    height: 310px;
+    position: relative;
+}
+
+#show-banner-img
+{
+    display:none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+}
+
+#show-wait-time-hours
+{
+    position:absolute;
+    left: 550px;
+    top: 100px;
+    width:150px;
+    padding: 12px;
+    font-size: 72pt;
+    opacity: 0;
+}
+
+#show-wait-time-minutes
+{
+    position:absolute;
+    left: 750px;
+    top: 100px;
+    width:150px;
+    padding: 12px;
+    font-size: 72pt;  
+    opacity: 0; 
+}
+
+#show-wait-time-nowait
+{
+    position:absolute;
+    left: 800px;
+    top: 100px;
+    width:150px;
+    padding: 12px;
+    font-size: 72pt; 
+}
+
+.show-wait-time-text
+{
+    font-size:medium;
+    text-align:right;
+}
+
+#show-title
+{
+    width: 100%;
+}
+
+#show-description
+{
+    float: left;
+    margin-left:26px;
+    width: 425px;
+    min-height: 320px;
+    padding: 12px;
+}
+
+#show-panel-two
+{
+    float: right;
+    width: 425px;
+    min-height: 220px;
+    margin-right: 36px;
+}
+
+#show-reserve
+{
+    width: 445px;
+    min-height: 65px;
+    margin-bottom: 36px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+#show-reserve h2
+{
+    font-size: xx-large;
+    color: White;
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    font-weight: 500;
+    margin: 12px;
+}
+
+#show-reserve h3
+{
+    font-size: x-large;
+    color: White;
+    font-family: "Segoe WPC", "Segoe UI", "Helvetica", "Arial", "Arial Unicode MS", sans-serif;
+    font-weight: 500;
+    margin: 12px;
+}
+
+#show-other
+{
+    width: 100%;
+    min-height: 135px;
+    padding: 12px;
+}
+
+.form-element
+{
+    margin: 12px;
+}
+
+.logon-panel
+{
+    width: 25%;
+    margin: 24px auto 0px auto;
+}
+
+#settings-wait-hours-container
+{
+    position:absolute;
+    left: 50px;
+    top: 100px;
+    width:150px;
+    padding: 12px;
+    font-size: 72pt;
+}
+
+#settings-wait-minutes-container
+{
+    position:absolute;
+    left: 250px;
+    top: 100px;
+    width:150px;
+    padding: 12px;
+    font-size: 72pt;  
+}
+
+.settings-bouncer
+{
+    height:50px;
+    display:none;
+}

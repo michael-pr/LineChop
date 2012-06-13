@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="owaitlist.Waitlist" CodeBehind="Waitlist.svc.cs" %>

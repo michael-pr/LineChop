@@ -1,0 +1,8 @@
+﻿@model TimeSpan
+           
+<h3>wait time</h3>
+@using(Ajax.BeginForm("UpdateWaitTime", new AjaxOptions { UpdateTargetId = "wait-time", OnSuccess = "updateSuccess()"})){
+<input type="text" id="wait-hours" name="Hours" value="@Model.Hours" class="settings-timespan accent"/>
+<input type="text" id="wait-minutes" name="Minutes" value="@Model.Minutes" class="settings-timespan accent"/>
+<input type="submit" value="Update Time" />
+}

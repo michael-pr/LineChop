@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/owaitlist_deploy" />
+  <setParameter name="ApplicationServices-Web.config Connection String" value="Server=doghorn.arvixe.com;Database=owlsvcs;User ID=owlsdbadmin;Password=owlsman321;" />
+  <setParameter name="OwlEntities-Web.config Connection String" value="Server=doghorn.arvixe.com;Database=owlsdb;User ID=owlsdbadmin;Password=owlsman321;" />
+</parameters>

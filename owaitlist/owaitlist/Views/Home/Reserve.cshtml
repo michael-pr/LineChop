@@ -1,0 +1,28 @@
+﻿@model owaitlist.Models.Reservation
+
+@Html.ValidationSummary(true)
+    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+    <h3>phone number</h3>
+    <div class="form-element">
+        @Html.EditorFor(model => model.PhoneNumber, new { placeholder = "phone number" })
+        @Html.ValidationMessageFor(model => model.PhoneNumber)
+    </div>
+
+    <h3>number of guests</h3>
+    <div class="form-element">
+        @Html.EditorFor(model => model.Guests, new { placeholder = "number of guests" })
+        @Html.ValidationMessageFor(model => model.Guests)
+    </div>
+        @Html.HiddenFor(model => model.RestaurantId)
+        @Html.HiddenFor(model => model.User)
+    <p class="form-element">
+        <input type="submit" value="Reserve" />
+    </p>
+    }
+    else
+    {
+        <h3>You'll need to sign in to reserve a spot on the waitlist</h3>
+    }
+
+<h3>@ViewBag.Message</h3>

@@ -1,0 +1,39 @@
+﻿@model owaitlist.Models.Restaurant
+               
+<div id="general-panel" class="accent-light" style="margin-top:24px">
+    <h2>add your restaurant</h2>
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)    
+            <div class="form-element">
+                @Html.EditorFor(model => model.Name, new { placeholder = "restaurant name" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+    
+            <div class="form-element">
+                @Html.EditorFor(model => model.Location, new { placeholder = "restaurant address" })
+                @Html.ValidationMessageFor(model => model.Location)
+            </div>
+    
+            <h3>wait time</h3>
+            <div class="form-element">
+                @Html.EditorFor(model => model.WaitTime)
+                @Html.ValidationMessageFor(model => model.WaitTime)
+            </div>
+    
+            <h3>@Html.LabelFor(model => model.AutoIncrement)</h3>
+            <div class="form-element">
+                @Html.EditorFor(model => model.AutoIncrement)
+                @Html.ValidationMessageFor(model => model.AutoIncrement)
+            </div>
+    
+            <h3>@Html.LabelFor(model => model.Increment)</h3>
+            <div class="form-element">
+                @Html.EditorFor(model => model.Increment)
+                @Html.ValidationMessageFor(model => model.Increment)
+            </div>
+            @Html.HiddenFor(model => model.User)    
+            <p>
+                <input type="submit" value="Add restaurant" />
+            </p>
+    }
+    </div>   
